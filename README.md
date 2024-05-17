@@ -1,4 +1,4 @@
-# Repo for some react challenge projects from scrimba. 
+# Repo for 40 react challenge projects from scrimba. 
 
 ## Some of the concepts and skills I hope to improve with the projects are:
 
