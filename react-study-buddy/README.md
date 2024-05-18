@@ -1,8 +1,14 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Challenge: 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    The flashcard needs to flip back and forth. Your task is to set this up as follows: 
+    
+        1. When the user clicks on the flashcard, the CSS class "flipped" should 
+           be added to the div with the className of "flash-card" on line 39. 
+           
+        2. If the user clicks on the flashcard again, the class "flipped" should be removed 
+           from the div. 
+           
+        3. The same pattern should be repeated for any subsequent clicks, so that the user can 
+           continue flipping the card back and forth as many times as they want.
