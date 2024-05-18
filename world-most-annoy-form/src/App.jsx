@@ -140,6 +140,7 @@ function App() {
         placeholder="First Name"
         onChange={handleChange}
         name="firstName"
+        value={formData.firstName}
       />
 
       <input
@@ -147,6 +148,7 @@ function App() {
         placeholder="Last Name"
         onChange={handleChange}
         name="lastName"
+        value={formData.lastName}
       />
 
       <input
@@ -154,6 +156,7 @@ function App() {
         placeholder="Email"
         onChange={handleChange}
         name="email"
+        value={formData.email}
       />
 
       <fieldset>
@@ -167,6 +170,7 @@ function App() {
               id="yes"
               name="privacyResponse"
               value="yes"
+              checked={formData.privacyResponse === "yes"}
               onChange={handleChange}
             />
             Yes!
@@ -178,7 +182,8 @@ function App() {
               id="no"
               name="privacyResponse"
               value="no"
-              defaultChecked
+              checked={formData.privacyResponse === "no"}
+              // defaultChecked
               onChange={handleChange}
             />
             No.
@@ -190,6 +195,7 @@ function App() {
               id="absolutely"
               name="privacyResponse"
               value="absolutely"
+              checked={formData.privacyResponse === "absolutely"}
               onChange={handleChange}
             />
             Absolutely!
@@ -205,7 +211,8 @@ function App() {
         <select
           onChange={handleChange}
           name="rating"
-          defaultValue="10"
+          // defaultValue="10"
+          value={formData.rating}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -227,6 +234,7 @@ function App() {
         <input
           type="checkbox"
           name="marketingResponse"
+          checked={formData.marketingResponse}
           onChange={handleChange}
         />
 
