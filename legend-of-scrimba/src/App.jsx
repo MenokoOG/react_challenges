@@ -35,12 +35,27 @@ function App() {
 		   in your character's name and click "Continue"!
 */
 
+	function handleChange(event) {
+		setPlayerName(event.target.value)
+	}
+
+	// console.log(playerName)
+
 	return (
 		<form className="form" onSubmit={handleSubmit}>
             <TopSection submitted={submitted} />
             
 			{/*-----Your input below!----------*/}
-			
+			<input 
+			className="name-input"
+			type="text"
+			maxLength={16}
+			placeholder="Enter Your Character's Name"
+			required
+			disabled={submitted}
+			onChange={handleChange}
+			value={playerName}
+			/>
 			
 			
 			{/*-----Your input above!----------*/}
