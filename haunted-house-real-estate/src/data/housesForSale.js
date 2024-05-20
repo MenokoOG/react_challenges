@@ -1,9 +1,16 @@
-import {nanoid} from "nanoid"
+// src/data/housesForSale.js
+import { nanoid } from "nanoid";
+import img1 from "../images/eleanor-brooke-62ZrBo3PoKc-unsplash.jpg";
+import img2 from "../images/luis-muller-t1IcKA8HkUM-unsplash.jpg";
+import img3 from "../images/amber-kipp-DJEkBfLp6bc-unsplash.jpg";
+import img4 from "../images/nathan-dumlao-Mw1JgIAuK6c-unsplash.jpg";
+import img5 from "../images/robbie-down-3IRIerl16nk-unsplash.jpg";
+import img6 from "../images/peter-herrmann-eZaEWy2rAIc-unsplash.jpg";
 
-export default [
+const housesForSale = [
     {
         id: nanoid(),
-        image: "./images/eleanor-brooke-62ZrBo3PoKc-unsplash.jpg",
+        image: img1,
         price: "$1,342,000",
         location: "Podunk, Ohio",
         squareFeet: "3,752",
@@ -16,9 +23,10 @@ export default [
         airConditioning: false,
         heating: true,
         haunted: true,
-    },{
+    },
+    {
         id: nanoid(),
-        image: "./images/luis-muller-t1IcKA8HkUM-unsplash.jpg",
+        image: img2,
         price: "$152,000",
         location: "Stumpsville, Indiana",
         squareFeet: "1,252",
@@ -29,11 +37,12 @@ export default [
         yearBuilt: 1932,
         garage: false,
         airConditioning: true,
-        heating: true, 
-        haunted: true, 
-    },{
+        heating: true,
+        haunted: true,
+    },
+    {
         id: nanoid(),
-        image: "./images/amber-kipp-DJEkBfLp6bc-unsplash.jpg",
+        image: img3,
         price: "$233,000",
         location: "Backwater, Tennessee",
         squareFeet: "1,995",
@@ -46,9 +55,10 @@ export default [
         airConditioning: true,
         heating: true,
         haunted: true,
-    },{
+    },
+    {
         id: nanoid(),
-        image: "./images/nathan-dumlao-Mw1JgIAuK6c-unsplash.jpg",
+        image: img4,
         price: "$176,500",
         location: "Sticksville, Vermont",
         squareFeet: "956",
@@ -61,9 +71,10 @@ export default [
         airConditioning: false,
         heating: false,
         haunted: true,
-    },{
+    },
+    {
         id: nanoid(),
-        image: "./images/robbie-down-3IRIerl16nk-unsplash.jpg",
+        image: img5,
         price: "$142,000",
         location: "Hinterland, Virginia",
         squareFeet: "1,212",
@@ -76,9 +87,10 @@ export default [
         airConditioning: false,
         heating: true,
         haunted: true,
-    },{
+    },
+    {
         id: nanoid(),
-        image: "./images/peter-herrmann-eZaEWy2rAIc-unsplash.jpg",
+        image: img6,
         price: "$380,120",
         location: "Backwoods, Oregon",
         squareFeet: "2,612",
@@ -92,5 +104,6 @@ export default [
         heating: true,
         haunted: true,
     },
-    
-]
+];
+
+export default housesForSale;
