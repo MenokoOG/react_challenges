@@ -88,7 +88,10 @@ import "./App.css"
               b. All of the other properties of currentCalc should be preserved. 
                                 
         ---------------Write your code for task 1 below.------------------------------------------------*/
-
+        setCurrentCalc(prevCalc => ({
+          ...prevCalc,
+          currentNum: [...prevCalc.currentNum, numFromClick],
+        }));
 
 
 
@@ -107,7 +110,10 @@ import "./App.css"
                  which are saved in INITIAL_STATE (line 9 above).
                      
         ---------------Write your code for task 2 below.------------------------------------------------*/
-
+        setCurrentCalc({
+          ...INITIAL_STATE,
+          currentNum: [numFromClick],
+        });
 
 
 
@@ -132,7 +138,12 @@ import "./App.css"
               c. The value of operation (a string) should be preserved. 
                                
         ---------------Write your code for task 3 below.------------------------------------------------*/
-
+        setCurrentCalc(prevCalc => ({
+          ...prevCalc,
+          previousNum: prevCalc.result,
+          currentNum: [numFromClick],
+          result: [],
+        }));
 
 
 
