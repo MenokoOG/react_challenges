@@ -1,42 +1,43 @@
-import React from "react"
-import Button from "./Button"
+import React from "react";
+import Button from "./Button";
 
- function NavButtons(props) {
-  
-	const { wordsDataArray, currentWord, setCurrentWord, position } = props
+function NavButtons({ wordsDataArray, currentWord, setCurrentWord, position }) {
+  function changeWord(currentIndex, direction, position) {
+    let nextIndex;
 
-	function changeWord(currentIndex, direction, position) {
-		let nextIndex
+    if (direction === "forward") {
+      nextIndex =
+        currentIndex === wordsDataArray.length - 1 ? 0 : currentIndex + 1;
+    } else {
+      nextIndex =
+        currentIndex === 0 ? wordsDataArray.length - 1 : currentIndex - 1;
+    }
+    setCurrentWord(wordsDataArray[nextIndex]);
 
-		if (direction === "forward") {
-			nextIndex =
-				currentIndex === wordsDataArray.length - 1 ? 0 : currentIndex + 1
-		} else {
-			nextIndex =
-				currentIndex === 0 ? wordsDataArray.length - 1 : currentIndex - 1
-		}
-		setCurrentWord(wordsDataArray[nextIndex])
+    position === "bottom" &&
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+  }
 
-		position === "bottom" &&
-			window.scrollTo({
-				top: 0,
-				behavior: "smooth",
-			})
-	}
+  return (
+    <div className="two-buttons-container">
+      <Button
+        type="backward"
+        clickHandler={() =>
+          changeWord(wordsDataArray.indexOf(currentWord), "backward", position)
+        }
+      />
 
-	return (
-		<div className="two-buttons-container">
-			<Button
-				type="backward"
-				clickHandler={() => changeWord(wordsDataArray.indexOf(currentWord), "backward", position)}
-			/>
-
-			<Button
-				type="forward"
-				clickHandler={() => changeWord(wordsDataArray.indexOf(currentWord), "forward", position)}
-			/>
-		</div>
-	)
+      <Button
+        type="forward"
+        clickHandler={() =>
+          changeWord(wordsDataArray.indexOf(currentWord), "forward", position)
+        }
+      />
+    </div>
+  );
 }
 
-export default NavButtons
+export default NavButtons;
