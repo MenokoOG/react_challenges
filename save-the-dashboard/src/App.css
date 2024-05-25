@@ -7,7 +7,7 @@ body {
   height: 100vh;
   width: 100vh;
   min-width: 1000px;
-  background: url("./images/beach-background.jpg");
+  background: url("./assets/images/beach-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

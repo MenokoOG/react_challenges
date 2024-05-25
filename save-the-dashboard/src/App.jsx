@@ -1,41 +1,33 @@
-import { useState, useEffect } from "react"
-import { nanoid } from "nanoid"
-import blankConfig from "./data/blankConfig"
-import Clock from "./components/Clock"
-import News from "./components/News"
-import Quote from "./components/Quote"
-import Stocks from "./components/Stocks"
-import ToDo from "./components/ToDo"
-import Weather from "./components/Weather"
-import ConfigMenu from "./components/ConfigMenu"
-import './App.css'
+import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
+import blankConfig from "./data/blankConfig";
+import Clock from "./components/Clock";
+import News from "./components/News";
+import Quote from "./components/Quote";
+import Stocks from "./components/Stocks";
+import ToDo from "./components/ToDo";
+import Weather from "./components/Weather";
+import ConfigMenu from "./components/ConfigMenu";
+import './App.css';
 
 function App() {
-
-
   const DEFAULT_CONFIG = blankConfig.map(widget => {
-    return { ...widget, positionData: { ...widget.positionData } }
-  })
+    return { ...widget, positionData: { ...widget.positionData } };
+  });
 
-  const [widgetConfig, setWidgetConfig] = useState(DEFAULT_CONFIG)
-  const [saveRequested, setSaveRequested] = useState(false)
+  const getInitialWidgetConfig = () => {
+    const savedConfig = localStorage.getItem('widgetConfig');
+    return savedConfig ? JSON.parse(savedConfig) : DEFAULT_CONFIG;
+  };
+
+  const [widgetConfig, setWidgetConfig] = useState(getInitialWidgetConfig);
+  const [saveRequested, setSaveRequested] = useState(false);
 
   function save() {
-    setSaveRequested(true) // This causes the green "Saved!" message to be rendered on line 130 below. The state then gets set back to false by the setTimeout on line 70, which removes the message. 
+    localStorage.setItem('widgetConfig', JSON.stringify(widgetConfig));
+    setSaveRequested(true); // This causes the green "Saved!" message to be rendered on line 130 below. The state then gets set back to false by the setTimeout on line 70, which removes the message. 
   }
 
-
-
-
-
-
-  /****** Write your code above! *******************************************************************  
-   
-   All of the code relevant to solving the challenge is above! Nothing about this project needs to be changed or analyzed outside of this code! 
-      
-   In addition to adding your own code, you will only have to make a small modification to the way the widgetConfig state is initialized above. Otherwise, no changes in the code above need to be made either! 
-  
-  ***************************************************************************************************/
 
   const widgetComponents = {
     Clock: <Clock />,
@@ -44,53 +36,53 @@ function App() {
     Stocks: <Stocks />,
     ToDo: <ToDo />,
     Weather: <Weather />
-  }
+  };
 
   const savedMessage = (
     <div className="saved-message-container">
       <p className="saved-message">Saved!</p>
     </div>
-  )
+  );
 
   useEffect(() => {
     if (saveRequested) {
       setTimeout(() => {
-        setSaveRequested(false)
-      }, 1000)
+        setSaveRequested(false);
+      }, 1000);
     }
-  }, [saveRequested])
+  }, [saveRequested]);
 
   function dragHandler(e, data) {
     if (e.target.dataset.type !== "button") {
       setWidgetConfig((prevConfig) => {
-        let allConfigs = [...prevConfig]
+        let allConfigs = [...prevConfig];
         let targetConfig = allConfigs.find(
           (widget) => widget.name === data.node.classList[1]
-        )
+        );
         targetConfig.positionData = {
           ...targetConfig.positionData,
           customPosition: true,
           x: data.x,
           y: data.y,
-        }
-        return allConfigs
-      })
+        };
+        return allConfigs;
+      });
     }
   }
 
   function getOffset(name) {
-    let targetConfig = widgetConfig.find((widget) => widget.name === name)
+    let targetConfig = widgetConfig.find((widget) => widget.name === name);
     if (!targetConfig.positionData.customPosition) {
-      return undefined
+      return undefined;
     } else {
-      return { x: targetConfig.positionData.x, y: targetConfig.positionData.y }
+      return { x: targetConfig.positionData.x, y: targetConfig.positionData.y };
     }
   }
 
   const widgetsToDisplay = widgetConfig
     .filter((widget) => widget.selected)
     .map((widget) => {
-      const component = { ...widgetComponents[widget.name], key: nanoid() }
+      const component = { ...widgetComponents[widget.name], key: nanoid() };
       component.props = {
         ...component.props,
         name: widget.name,
@@ -98,18 +90,18 @@ function App() {
         getOffset: getOffset,
         dragHandler: dragHandler,
         changeHandler: changeHandler,
-      }
-      return component
-    })
+      };
+      return component;
+    });
 
   function changeHandler(event) {
     setWidgetConfig((prevConfig) => {
       return prevConfig.map((widget) => {
         return widget.name === event.target.name
           ? { ...widget, selected: !widget.selected }
-          : { ...widget }
-      })
-    })
+          : { ...widget };
+      });
+    });
   }
 
   return (
@@ -122,8 +114,7 @@ function App() {
         save={save}
       />
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;
