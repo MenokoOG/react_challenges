@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import stockData from "./data/stockData"
 import Stock from "./components/Stock"
 import './App.css'
+import applogo from "./assets/images/app-logo.svg"
 
 function App() {
 
@@ -54,7 +55,7 @@ function App() {
   return (
     <div>
       <header>
-        <img className="app-logo" src="./images/app-logo.svg" />
+        <img className="app-logo" src={applogo} />
         <h1><span>Stock Tracker</span></h1>
       </header>
       <div className="wrapper">

@@ -17,7 +17,7 @@ body {
 
 @media (min-width: 500px) {
 	body {
-		justify-content: flex-end;
+		justify-content: center;
 		margin-right: 100px;
 	}
 }
