@@ -1,28 +1,35 @@
+import appleLogo from "../assets/images/apple.svg";
+import metaLogo from "../assets/images/meta.svg";
+import googleLogo from "../assets/images/google.svg";
+import amazonLogo from "../assets/images/amazon.svg";
+import microsoftLogo from "../assets/images/microsoft.svg";
+
+
 export default [
     {
         stockName: "AAPL", 
-        logo: "../assets/images/apple.svg",
+        logo: appleLogo,
         currentPrice: 153.83,
         prevClosingPrice: 151.03 
     },{
         stockName: "META",
-        logo: "../assets/images/meta.svg",
+        logo: metaLogo,
         currentPrice: 184.91,
         prevClosingPrice: 185.25
     },{
         stockName: "GOOGL",
-        logo: "../assets/images/google.svg", 
+        logo: googleLogo, 
         currentPrice: 95.13,
         prevClosingPrice: 92.65
     },{
         stockName: "AMZN", 
-        logo: "../assets/images/amazon.svg",
+        logo: amazonLogo,
         currentPrice: 93.75,
         prevClosingPrice: 94.91
     },{
         stockName: "MSFT",
-        logo: "../assets/images/microsoft.svg", 
+        logo: microsoftLogo, 
         currentPrice: 256.85,
         prevClosingPrice: 256.85 
     }
-]
+];
