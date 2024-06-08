@@ -299,3 +299,7 @@ button:focus:not(:focus-visible) {
         background: #D88C9A
     }
 }
+
+.faded {
+  opacity: 0.2;
+}
